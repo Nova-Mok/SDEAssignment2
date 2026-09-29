@@ -22,11 +22,20 @@ load_dotenv(Path(__file__).resolve().parent / ".env")
 from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, cli
 from livekit.agents.voice.background_audio import BackgroundAudioPlayer
 
+from acoustic.config import AcousticConfig
+from acoustic.factory import build_acoustic_model
+from acoustic.pipeline import AcousticStreamProcessor
+from acoustic.types import ExpressionState
 from aws_providers import make_llm, make_stt, make_tts
 from backchannel.config import BackchannelConfig
 from backchannel.engine import BackchannelEngine
 from backchannel.instrumentation import JsonlRecorder
-from livekit_adapter import LiveKitCachedAudioProvider, wire_session_events
+from livekit_adapter import (
+    LiveKitCachedAudioProvider,
+    publish_expression_update,
+    wire_acoustic_tap,
+    wire_session_events,
+)
 
 logger = logging.getLogger("backchannel-worker")
 
@@ -70,6 +79,7 @@ async def entrypoint(ctx: JobContext) -> None:
 
     engine: BackchannelEngine | None = None
     bg_audio: BackgroundAudioPlayer | None = None
+    acoustic_processor: AcousticStreamProcessor | None = None
 
     if mode == "backchannel":
         LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -81,6 +91,7 @@ async def entrypoint(ctx: JobContext) -> None:
 
         provider = LiveKitCachedAudioProvider(bg_audio, CLIP_DIR)
         config = BackchannelConfig.load()
+        acoustic_config = AcousticConfig.load()
         engine = BackchannelEngine(
             config=config,
             audio_provider=provider,
@@ -88,12 +99,39 @@ async def entrypoint(ctx: JobContext) -> None:
             run_id=ctx.room.name,
             scenario_id="live",
             config_label="backchannel",
+            acoustic_config=acoustic_config,
         )
-        wire_session_events(session, engine)
+
+        # build_acoustic_model() returns None for every unavailable-model
+        # failure mode (disabled, missing deps, GPU/model server down) —
+        # the call proceeds exactly like Assignment 1 in that case, just
+        # without acoustic signal. See README "Failure isolation".
+        acoustic_model = build_acoustic_model(acoustic_config)
+        if acoustic_model is not None:
+            def _on_expression_update(state: ExpressionState) -> None:
+                engine.on_expression_update(state)
+                publish_expression_update(ctx.room, state)
+
+            acoustic_processor = AcousticStreamProcessor(
+                config=acoustic_config,
+                model=acoustic_model,
+                recorder=recorder,
+                run_id=ctx.room.name,
+                scenario_id="live",
+                on_state_update=_on_expression_update,
+            )
+            await acoustic_processor.start()
+            logger.info("acoustic pipeline running (model=%s)", acoustic_model.info)
+        else:
+            logger.info("acoustic pipeline not started (disabled or model unavailable)")
+
+        wire_session_events(session, engine, acoustic_processor)
         await engine.run()
         logger.info("backchannel engine running (config=%s)", config)
 
     async def _shutdown() -> None:
+        if acoustic_processor is not None:
+            await acoustic_processor.stop()
         if engine is not None:
             await engine.shutdown()
         if bg_audio is not None:
@@ -102,6 +140,8 @@ async def entrypoint(ctx: JobContext) -> None:
     ctx.add_shutdown_callback(_shutdown)
 
     await session.start(agent=agent, room=ctx.room)
+    if acoustic_processor is not None:
+        wire_acoustic_tap(session, acoustic_processor)
 
 
 if __name__ == "__main__":

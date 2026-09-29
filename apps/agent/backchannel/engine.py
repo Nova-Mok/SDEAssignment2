@@ -25,6 +25,16 @@ Design summary (see README for the full write-up):
   -> thinking/speaking) independently trigger cancellation, so whichever
   signal arrives first wins — the assignment's "who has priority" race is
   answered by "the real response, checked from two directions."
+
+- Acoustic integration (Assignment 2): still framework-agnostic — this file
+  imports nothing from `livekit`, only two small, dependency-free modules
+  from `acoustic/` (`config.AcousticConfig`, plain dataclass; `policy`, pure
+  arithmetic; `types.ExpressionState`, plain dataclass). The engine never
+  touches raw audio, a model, or numpy — it only ever reads the latest
+  `ExpressionState` pushed to it via `on_expression_update()` and asks
+  `evaluate_acoustic_policy()` what that implies for cooldown/phrase choice.
+  See acoustic/policy.py for the policy itself and README "Using acoustic
+  information" for why this is the one conversational decision it drives.
 """
 from __future__ import annotations
 
@@ -33,6 +43,10 @@ import contextlib
 import random
 import time
 from collections.abc import Callable
+
+from acoustic.config import AcousticConfig
+from acoustic.policy import evaluate_acoustic_policy
+from acoustic.types import ExpressionState
 
 from .audio_provider import BackchannelAudioProvider, PlaybackHandle
 from .config import BackchannelConfig
@@ -59,9 +73,12 @@ class BackchannelEngine:
         run_id: str = "",
         scenario_id: str = "",
         config_label: str = "backchannel",
+        acoustic_config: AcousticConfig | None = None,
     ):
         self._config = config
         self._audio_provider = audio_provider
+        self._acoustic_config = acoustic_config
+        self._expression_state: ExpressionState | None = None
         self._eot_estimator = eot_estimator or HeuristicEndOfTurnEstimator(
             silence_window_ms=config.EOT_SILENCE_WINDOW_MS,
             long_turn_ms=config.EOT_LONG_TURN_MS,
@@ -138,6 +155,23 @@ class BackchannelEngine:
         self._last_transcript_text = text
         self._record(EventType.STT_FINAL if is_final else EventType.STT_INTERIM, metadata={"text": text, "is_final": is_final})
 
+    def on_expression_update(self, state: ExpressionState) -> None:
+        """Called by the acoustic pipeline (AcousticStreamProcessor's
+        `on_state_update` callback) every time a new smoothed expression
+        state is available. Purely a state update — no async work, no
+        decision made here; `tick()` reads `self._expression_state` fresh
+        on its own cadence, same as every other input to the policy."""
+        self._expression_state = state
+        self._record(
+            EventType.ACOUSTIC_EXPRESSION_UPDATED,
+            metadata={
+                "frustration": state.frustration,
+                "uncertainty": state.uncertainty,
+                "energy": state.energy,
+                "confidence": state.confidence,
+            },
+        )
+
     def on_agent_state_changed(self, new_state: AgentState, now: float | None = None) -> None:
         now = now if now is not None else self._clock()
         old_state = self._agent_state
@@ -188,10 +222,19 @@ class BackchannelEngine:
 
         since_last_bc_ms = (now - self._last_backchannel_at) * 1000 if self._last_backchannel_at is not None else float("inf")
 
+        # Acoustic policy: a pure function of the latest smoothed expression
+        # state (or the inert default if acoustic is disabled/unavailable/
+        # not yet confident — see acoustic/policy.py). This is the one real
+        # conversational decision the acoustic signal drives: while the user
+        # sounds acoustically frustrated, back off (longer cooldown, neutral
+        # acknowledgements only) rather than layering more "mm-hmm"s on top.
+        policy = evaluate_acoustic_policy(self._expression_state, self._acoustic_config)
+        effective_cooldown_ms = self._config.BACKCHANNEL_COOLDOWN_MS * policy.cooldown_multiplier
+
         reasons_suppress: list[str] = []
         if speech_duration_ms < self._config.MIN_SPEECH_DURATION_MS:
             reasons_suppress.append("speech_too_short")
-        if since_last_bc_ms < self._config.BACKCHANNEL_COOLDOWN_MS:
+        if since_last_bc_ms < effective_cooldown_ms:
             reasons_suppress.append("cooldown_active")
         if eot_probability >= self._config.MAX_EOT_PROBABILITY:
             reasons_suppress.append("high_eot_probability")
@@ -210,7 +253,12 @@ class BackchannelEngine:
             "eotProbability": eot_probability,
             "timeSinceLastBackchannelMs": since_last_bc_ms,
             "agentState": self._agent_state,
+            "effectiveCooldownMs": effective_cooldown_ms,
+            "acousticPolicyReason": policy.reason,
         }
+        if self._expression_state is not None:
+            log_fields["acousticFrustration"] = self._expression_state.frustration
+            log_fields["acousticConfidence"] = self._expression_state.confidence
 
         if reasons_suppress:
             self._record(EventType.BACKCHANNEL_SUPPRESSED, decision_id=decision_id, metadata={**log_fields, "reason": reasons_suppress})
@@ -221,7 +269,7 @@ class BackchannelEngine:
             self._sm.transition(EngineState.BACKCHANNEL_CANDIDATE)
         self._record(EventType.BACKCHANNEL_CANDIDATE, decision_id=decision_id, metadata={**log_fields, "reason": reasons_allow})
 
-        phrase = self._choose_phrase()
+        phrase = self._choose_phrase(allowed_phrases=policy.allowed_phrases)
         self._sm.transition(EngineState.BACKCHANNEL_PENDING)
         self._record(EventType.BACKCHANNEL_SELECTED, decision_id=decision_id, metadata={**log_fields, "reason": reasons_allow, "phrase": phrase})
 
@@ -229,10 +277,17 @@ class BackchannelEngine:
         task = asyncio.create_task(self._play_backchannel(phrase, decision_id, turn_id))
         self._pending_task = task
 
-    def _choose_phrase(self) -> str:
+    def _choose_phrase(self, allowed_phrases: tuple[str, ...] | None = None) -> str:
         phrases = self._audio_provider.available_phrases()
         if not phrases:
             raise RuntimeError("audio provider has no available phrases")
+        if allowed_phrases is not None:
+            # Acoustic policy restricting to e.g. neutral-only phrases while
+            # frustration is high. Fall back to the full list if the
+            # restriction would leave nothing playable (a provider missing
+            # every "neutral" clip must never make backchanneling silently
+            # dead — see acoustic/policy.py docstring).
+            phrases = [p for p in phrases if p in allowed_phrases] or phrases
         candidates = [p for p in phrases if p != self._last_phrase] or phrases
         phrase = self._rng.choice(candidates)
         self._last_phrase = phrase
