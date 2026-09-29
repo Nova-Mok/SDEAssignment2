@@ -3,7 +3,7 @@ wav2vec2-base encoder (self-supervised, pretrained directly on raw audio —
 no transcript involvement anywhere in its architecture or training) fine-
 tuned on IEMOCAP for 4-class categorical speech emotion recognition
 (neutral / happy / angry / sad). See README "Model selection" for the full
-justification, and PHASE2_MODEL_NOTES.md for how it was evaluated.
+justification and every measured number cited below.
 
 Measured on this machine (CPU, single-threaded, transformers 5.1.0 /
 torch 2.10.0, Apple Silicon): ~95M params, load time ~6s, forward-pass

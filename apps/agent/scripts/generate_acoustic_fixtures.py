@@ -19,8 +19,8 @@ Known limitations, documented rather than hidden:
    itself a realistic accent/language-mismatch edge case, and is called
    out explicitly in the README's "accents and languages" answer rather
    than papered over.
-2. Empirically verified against this account (see PHASE2_MODEL_NOTES.md /
-   README "Benchmark methodology"): Polly's NEURAL engine rejects SSML
+2. Empirically verified against this account (see README "Benchmark
+   scenarios"): Polly's NEURAL engine rejects SSML
    `<prosody pitch="...">` and any `<emphasis>` level for this voice
    ("Unsupported Neural feature") — a real Polly platform constraint, not
    a corner cut here. Delivery variation below therefore uses only
