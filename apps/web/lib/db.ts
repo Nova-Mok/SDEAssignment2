@@ -72,6 +72,53 @@ export function getEventsForRun(runId: string): EventRow[] {
   }
 }
 
+export interface AcousticLatencySummary {
+  predictionCount: number;
+  effectiveDetection: MetricSummary;
+  inference: MetricSummary;
+  audioWait: MetricSummary;
+}
+
+// Computes true acoustic detection latency P50/P95 (Assignment 2, Phase 4)
+// directly from one run's own ACOUSTIC_PREDICTION_PRODUCED events — no
+// separate query, no separate benchmark script needed to see it per-run.
+// Returns null when this run has no acoustic data (baseline runs, or
+// acoustic disabled) rather than a summary full of nulls.
+export function summarizeAcousticLatency(events: EventRow[]): AcousticLatencySummary | null {
+  const effectiveDetectionMs: number[] = [];
+  const inferenceMs: number[] = [];
+  const audioWaitMs: number[] = [];
+
+  for (const e of events) {
+    if (e.event_type !== "ACOUSTIC_PREDICTION_PRODUCED") continue;
+    try {
+      const meta = JSON.parse(e.metadata_json) as {
+        latency?: { effectiveDetectionLatencyMs?: number; inferenceLatencyMs?: number; audioWaitMs?: number };
+      };
+      if (typeof meta.latency?.effectiveDetectionLatencyMs === "number") {
+        effectiveDetectionMs.push(meta.latency.effectiveDetectionLatencyMs);
+      }
+      if (typeof meta.latency?.inferenceLatencyMs === "number") {
+        inferenceMs.push(meta.latency.inferenceLatencyMs);
+      }
+      if (typeof meta.latency?.audioWaitMs === "number") {
+        audioWaitMs.push(meta.latency.audioWaitMs);
+      }
+    } catch {
+      // malformed metadata for this one event — skip it, don't fail the whole summary
+    }
+  }
+
+  if (effectiveDetectionMs.length === 0) return null;
+
+  return {
+    predictionCount: effectiveDetectionMs.length,
+    effectiveDetection: summarize(effectiveDetectionMs),
+    inference: summarize(inferenceMs),
+    audioWait: summarize(audioWaitMs),
+  };
+}
+
 export function findComparableRun(scenarioId: string, config: string, runIndex: number): RunRow | undefined {
   try {
     return getDb()

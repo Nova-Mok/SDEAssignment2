@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Timeline from "../../../components/Timeline";
+import { summarizeAcousticLatency } from "../../../lib/db";
 import { getLiveSessionEvents, listLiveSessions } from "../../../lib/liveSessions";
+import { fmtMs } from "../../../lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +26,7 @@ export default async function LiveSessionDetailPage({ params }: { params: Promis
   const badBackchannels = events.filter((e) => e.event_type === "BAD_BACKCHANNEL");
   const errors = events.filter((e) => e.event_type === "ERROR");
   const turns = events.filter((e) => e.event_type === "USER_SPEECH_START");
+  const acoustic = summarizeAcousticLatency(events);
 
   return (
     <div className="container">
@@ -79,6 +82,56 @@ export default async function LiveSessionDetailPage({ params }: { params: Promis
           )}
         </div>
       </div>
+
+      {acoustic && (
+        <div className="panel" style={{ marginBottom: 20 }}>
+          <h2 style={{ marginTop: 0 }}>Acoustic latency (this session)</h2>
+          <p className="small" style={{ marginTop: -8 }}>
+            Computed from this session&apos;s own {acoustic.predictionCount} ACOUSTIC_PREDICTION_PRODUCED events.
+            &quot;Effective detection&quot; is the honest end-to-end number (relevant speech → usable prediction,
+            including window-fill wait) — see README &quot;Latency methodology&quot; for why inference latency alone
+            is not reported as the headline figure.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th style={{ textAlign: "left" }}></th>
+                <th style={{ textAlign: "left" }}>P50</th>
+                <th style={{ textAlign: "left" }}>P95</th>
+                <th style={{ textAlign: "left" }}>mean</th>
+                <th style={{ textAlign: "left" }}>min</th>
+                <th style={{ textAlign: "left" }}>max</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style={{ textAlign: "left" }}><strong>Effective detection latency</strong></td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.effectiveDetection.p50)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.effectiveDetection.p95)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.effectiveDetection.mean)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.effectiveDetection.min)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.effectiveDetection.max)}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "left" }}>Audio-wait (window fill)</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.audioWait.p50)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.audioWait.p95)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.audioWait.mean)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.audioWait.min)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.audioWait.max)}</td>
+              </tr>
+              <tr>
+                <td style={{ textAlign: "left" }}>Model inference</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.inference.p50)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.inference.p95)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.inference.mean)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.inference.min)}</td>
+                <td style={{ textAlign: "left" }}>{fmtMs(acoustic.inference.max)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <h2>Raw event log</h2>
       <div className="panel">
