@@ -26,7 +26,52 @@ export type EventType =
   | "AGENT_RESPONSE_START"
   | "AGENT_RESPONSE_END"
   | "SESSION_SHUTDOWN"
-  | "ERROR";
+  | "ERROR"
+  // Acoustic-expression side path (Assignment 2) — see
+  // apps/agent/acoustic/pipeline.py and README "Observability".
+  | "ACOUSTIC_DISABLED"
+  | "ACOUSTIC_AUDIO_WINDOW_READY"
+  | "ACOUSTIC_INFERENCE_STARTED"
+  | "ACOUSTIC_INFERENCE_COMPLETED"
+  | "ACOUSTIC_PREDICTION_PRODUCED"
+  | "ACOUSTIC_PREDICTION_STALE"
+  | "ACOUSTIC_QUEUE_OVERFLOW"
+  | "ACOUSTIC_INFERENCE_FAILED"
+  | "ACOUSTIC_MODEL_UNAVAILABLE"
+  | "ACOUSTIC_EXPRESSION_UPDATED";
+
+// One acoustic prediction's payload, as published in
+// ACOUSTIC_PREDICTION_PRODUCED's metadata_json (mirrors
+// acoustic.types.AcousticPrediction.to_dict()) and over the live LiveKit
+// data-channel message (topic "acoustic", mirrors ExpressionState.to_dict()
+// plus a sentAt wall-clock timestamp — see livekit_adapter.publish_expression_update).
+export interface AcousticPredictionPayload {
+  producedAt: number;
+  window: { startTs: number; endTs: number; durationMs: number; sampleCount: number; isPartial: boolean };
+  latency: { audioWaitMs: number; queueWaitMs: number; inferenceLatencyMs: number; effectiveDetectionLatencyMs: number };
+  frustration: number;
+  uncertainty: number;
+  energy: number;
+  confidence: number;
+  smoothedFrustration: number;
+  smoothedUncertainty: number;
+  smoothedEnergy: number;
+  modelVersion: string;
+  modelKind: string;
+  isSimulated: boolean;
+}
+
+export interface LiveExpressionMessage {
+  frustration: number;
+  uncertainty: number;
+  energy: number;
+  confidence: number;
+  updated_at: number;
+  sample_count: number;
+  model_version: string;
+  stale: boolean;
+  sentAt: number;
+}
 
 export interface EventRow {
   id: number;

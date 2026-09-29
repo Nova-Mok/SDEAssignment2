@@ -1,0 +1,1842 @@
+{
+  "scenarios": {
+    "same_words_different_delivery": {
+      "durationS": 1.24,
+      "numPredictions": 3,
+      "trajectory": [
+        {
+          "tRelMs": 765.8,
+          "frustration": 0.65,
+          "smoothedFrustration": 0.65,
+          "uncertainty": 0.66,
+          "smoothedUncertainty": 0.66,
+          "energy": 0.857,
+          "smoothedEnergy": 0.857,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 1013.4,
+          "frustration": 0.68,
+          "smoothedFrustration": 0.657,
+          "uncertainty": 0.621,
+          "smoothedUncertainty": 0.651,
+          "energy": 0.838,
+          "smoothedEnergy": 0.853,
+          "confidence": 0.66
+        },
+        {
+          "tRelMs": 1277.4,
+          "frustration": 0.685,
+          "smoothedFrustration": 0.663,
+          "uncertainty": 0.615,
+          "smoothedUncertainty": 0.643,
+          "energy": 0.854,
+          "smoothedEnergy": 0.853,
+          "confidence": 0.66
+        }
+      ]
+    },
+    "increasing_frustration": {
+      "durationS": 9.5,
+      "numPredictions": 38,
+      "trajectory": [
+        {
+          "tRelMs": 765.0,
+          "frustration": 0.592,
+          "smoothedFrustration": 0.592,
+          "uncertainty": 0.602,
+          "smoothedUncertainty": 0.602,
+          "energy": 0.677,
+          "smoothedEnergy": 0.677,
+          "confidence": 0.721
+        },
+        {
+          "tRelMs": 1020.8,
+          "frustration": 0.648,
+          "smoothedFrustration": 0.606,
+          "uncertainty": 0.592,
+          "smoothedUncertainty": 0.6,
+          "energy": 0.706,
+          "smoothedEnergy": 0.684,
+          "confidence": 0.695
+        },
+        {
+          "tRelMs": 1282.0,
+          "frustration": 0.675,
+          "smoothedFrustration": 0.623,
+          "uncertainty": 0.579,
+          "smoothedUncertainty": 0.595,
+          "energy": 0.754,
+          "smoothedEnergy": 0.701,
+          "confidence": 0.707
+        },
+        {
+          "tRelMs": 1533.0,
+          "frustration": 0.683,
+          "smoothedFrustration": 0.638,
+          "uncertainty": 0.536,
+          "smoothedUncertainty": 0.58,
+          "energy": 0.819,
+          "smoothedEnergy": 0.731,
+          "confidence": 0.723
+        },
+        {
+          "tRelMs": 1786.0,
+          "frustration": 0.677,
+          "smoothedFrustration": 0.648,
+          "uncertainty": 0.558,
+          "smoothedUncertainty": 0.574,
+          "energy": 0.769,
+          "smoothedEnergy": 0.741,
+          "confidence": 0.726
+        },
+        {
+          "tRelMs": 2049.7,
+          "frustration": 0.66,
+          "smoothedFrustration": 0.651,
+          "uncertainty": 0.549,
+          "smoothedUncertainty": 0.568,
+          "energy": 0.772,
+          "smoothedEnergy": 0.749,
+          "confidence": 0.737
+        },
+        {
+          "tRelMs": 2298.7,
+          "frustration": 0.679,
+          "smoothedFrustration": 0.658,
+          "uncertainty": 0.507,
+          "smoothedUncertainty": 0.552,
+          "energy": 0.802,
+          "smoothedEnergy": 0.762,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 2548.3,
+          "frustration": 0.647,
+          "smoothedFrustration": 0.655,
+          "uncertainty": 0.525,
+          "smoothedUncertainty": 0.545,
+          "energy": 0.799,
+          "smoothedEnergy": 0.771,
+          "confidence": 0.733
+        },
+        {
+          "tRelMs": 2858.5,
+          "frustration": 0.61,
+          "smoothedFrustration": 0.644,
+          "uncertainty": 0.614,
+          "smoothedUncertainty": 0.562,
+          "energy": 0.671,
+          "smoothedEnergy": 0.747,
+          "confidence": 0.685
+        },
+        {
+          "tRelMs": 3083.2,
+          "frustration": 0.561,
+          "smoothedFrustration": 0.626,
+          "uncertainty": 0.673,
+          "smoothedUncertainty": 0.586,
+          "energy": 0.555,
+          "smoothedEnergy": 0.705,
+          "confidence": 0.633
+        },
+        {
+          "tRelMs": 3333.5,
+          "frustration": 0.613,
+          "smoothedFrustration": 0.623,
+          "uncertainty": 0.666,
+          "smoothedUncertainty": 0.604,
+          "energy": 0.636,
+          "smoothedEnergy": 0.69,
+          "confidence": 0.625
+        },
+        {
+          "tRelMs": 3586.7,
+          "frustration": 0.61,
+          "smoothedFrustration": 0.62,
+          "uncertainty": 0.646,
+          "smoothedUncertainty": 0.613,
+          "energy": 0.644,
+          "smoothedEnergy": 0.68,
+          "confidence": 0.614
+        },
+        {
+          "tRelMs": 3842.0,
+          "frustration": 0.631,
+          "smoothedFrustration": 0.623,
+          "uncertainty": 0.66,
+          "smoothedUncertainty": 0.623,
+          "energy": 0.665,
+          "smoothedEnergy": 0.677,
+          "confidence": 0.618
+        },
+        {
+          "tRelMs": 4088.4,
+          "frustration": 0.647,
+          "smoothedFrustration": 0.628,
+          "uncertainty": 0.603,
+          "smoothedUncertainty": 0.619,
+          "energy": 0.724,
+          "smoothedEnergy": 0.687,
+          "confidence": 0.648
+        },
+        {
+          "tRelMs": 4343.7,
+          "frustration": 0.647,
+          "smoothedFrustration": 0.632,
+          "uncertainty": 0.556,
+          "smoothedUncertainty": 0.605,
+          "energy": 0.733,
+          "smoothedEnergy": 0.698,
+          "confidence": 0.648
+        },
+        {
+          "tRelMs": 4600.3,
+          "frustration": 0.626,
+          "smoothedFrustration": 0.631,
+          "uncertainty": 0.536,
+          "smoothedUncertainty": 0.587,
+          "energy": 0.747,
+          "smoothedEnergy": 0.71,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 4851.1,
+          "frustration": 0.6,
+          "smoothedFrustration": 0.623,
+          "uncertainty": 0.524,
+          "smoothedUncertainty": 0.571,
+          "energy": 0.717,
+          "smoothedEnergy": 0.712,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 5109.5,
+          "frustration": 0.602,
+          "smoothedFrustration": 0.618,
+          "uncertainty": 0.558,
+          "smoothedUncertainty": 0.568,
+          "energy": 0.633,
+          "smoothedEnergy": 0.694,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 5345.5,
+          "frustration": 0.568,
+          "smoothedFrustration": 0.607,
+          "uncertainty": 0.63,
+          "smoothedUncertainty": 0.582,
+          "energy": 0.545,
+          "smoothedEnergy": 0.66,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 5592.9,
+          "frustration": 0.548,
+          "smoothedFrustration": 0.595,
+          "uncertainty": 0.751,
+          "smoothedUncertainty": 0.616,
+          "energy": 0.433,
+          "smoothedEnergy": 0.614,
+          "confidence": 0.577
+        },
+        {
+          "tRelMs": 5854.0,
+          "frustration": 0.576,
+          "smoothedFrustration": 0.591,
+          "uncertainty": 0.758,
+          "smoothedUncertainty": 0.645,
+          "energy": 0.492,
+          "smoothedEnergy": 0.589,
+          "confidence": 0.588
+        },
+        {
+          "tRelMs": 6094.2,
+          "frustration": 0.69,
+          "smoothedFrustration": 0.611,
+          "uncertainty": 0.659,
+          "smoothedUncertainty": 0.648,
+          "energy": 0.713,
+          "smoothedEnergy": 0.614,
+          "confidence": 0.573
+        },
+        {
+          "tRelMs": 6351.2,
+          "frustration": 0.711,
+          "smoothedFrustration": 0.631,
+          "uncertainty": 0.63,
+          "smoothedUncertainty": 0.645,
+          "energy": 0.768,
+          "smoothedEnergy": 0.645,
+          "confidence": 0.57
+        },
+        {
+          "tRelMs": 6604.9,
+          "frustration": 0.738,
+          "smoothedFrustration": 0.653,
+          "uncertainty": 0.616,
+          "smoothedUncertainty": 0.639,
+          "energy": 0.796,
+          "smoothedEnergy": 0.676,
+          "confidence": 0.599
+        },
+        {
+          "tRelMs": 6857.7,
+          "frustration": 0.741,
+          "smoothedFrustration": 0.672,
+          "uncertainty": 0.547,
+          "smoothedUncertainty": 0.619,
+          "energy": 0.872,
+          "smoothedEnergy": 0.718,
+          "confidence": 0.61
+        },
+        {
+          "tRelMs": 7109.1,
+          "frustration": 0.748,
+          "smoothedFrustration": 0.689,
+          "uncertainty": 0.466,
+          "smoothedUncertainty": 0.584,
+          "energy": 0.916,
+          "smoothedEnergy": 0.763,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 7360.1,
+          "frustration": 0.756,
+          "smoothedFrustration": 0.705,
+          "uncertainty": 0.436,
+          "smoothedUncertainty": 0.55,
+          "energy": 0.93,
+          "smoothedEnergy": 0.802,
+          "confidence": 0.663
+        },
+        {
+          "tRelMs": 7609.2,
+          "frustration": 0.686,
+          "smoothedFrustration": 0.7,
+          "uncertainty": 0.526,
+          "smoothedUncertainty": 0.544,
+          "energy": 0.793,
+          "smoothedEnergy": 0.8,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 7854.2,
+          "frustration": 0.671,
+          "smoothedFrustration": 0.694,
+          "uncertainty": 0.601,
+          "smoothedUncertainty": 0.556,
+          "energy": 0.689,
+          "smoothedEnergy": 0.778,
+          "confidence": 0.573
+        },
+        {
+          "tRelMs": 8105.9,
+          "frustration": 0.711,
+          "smoothedFrustration": 0.698,
+          "uncertainty": 0.569,
+          "smoothedUncertainty": 0.559,
+          "energy": 0.804,
+          "smoothedEnergy": 0.783,
+          "confidence": 0.581
+        },
+        {
+          "tRelMs": 8366.2,
+          "frustration": 0.75,
+          "smoothedFrustration": 0.708,
+          "uncertainty": 0.558,
+          "smoothedUncertainty": 0.558,
+          "energy": 0.861,
+          "smoothedEnergy": 0.799,
+          "confidence": 0.573
+        },
+        {
+          "tRelMs": 8624.3,
+          "frustration": 0.774,
+          "smoothedFrustration": 0.722,
+          "uncertainty": 0.566,
+          "smoothedUncertainty": 0.56,
+          "energy": 0.91,
+          "smoothedEnergy": 0.822,
+          "confidence": 0.584
+        },
+        {
+          "tRelMs": 8943.6,
+          "frustration": 0.773,
+          "smoothedFrustration": 0.733,
+          "uncertainty": 0.545,
+          "smoothedUncertainty": 0.557,
+          "energy": 0.971,
+          "smoothedEnergy": 0.853,
+          "confidence": 0.607
+        },
+        {
+          "tRelMs": 9131.2,
+          "frustration": 0.8,
+          "smoothedFrustration": 0.747,
+          "uncertainty": 0.512,
+          "smoothedUncertainty": 0.547,
+          "energy": 1.0,
+          "smoothedEnergy": 0.885,
+          "confidence": 0.614
+        },
+        {
+          "tRelMs": 9378.3,
+          "frustration": 0.772,
+          "smoothedFrustration": 0.753,
+          "uncertainty": 0.449,
+          "smoothedUncertainty": 0.524,
+          "energy": 1.0,
+          "smoothedEnergy": 0.912,
+          "confidence": 0.685
+        },
+        {
+          "tRelMs": 9634.7,
+          "frustration": 0.78,
+          "smoothedFrustration": 0.76,
+          "uncertainty": 0.422,
+          "smoothedUncertainty": 0.499,
+          "energy": 1.0,
+          "smoothedEnergy": 0.934,
+          "confidence": 0.692
+        },
+        {
+          "tRelMs": 9888.8,
+          "frustration": 0.746,
+          "smoothedFrustration": 0.756,
+          "uncertainty": 0.476,
+          "smoothedUncertainty": 0.493,
+          "energy": 1.0,
+          "smoothedEnergy": 0.95,
+          "confidence": 0.7
+        },
+        {
+          "tRelMs": 10141.8,
+          "frustration": 0.736,
+          "smoothedFrustration": 0.752,
+          "uncertainty": 0.532,
+          "smoothedUncertainty": 0.502,
+          "energy": 0.945,
+          "smoothedEnergy": 0.949,
+          "confidence": 0.629
+        }
+      ]
+    },
+    "hesitant_speaker": {
+      "durationS": 6.1,
+      "numPredictions": 24,
+      "trajectory": [
+        {
+          "tRelMs": 762.4,
+          "frustration": 0.563,
+          "smoothedFrustration": 0.563,
+          "uncertainty": 0.642,
+          "smoothedUncertainty": 0.642,
+          "energy": 0.664,
+          "smoothedEnergy": 0.664,
+          "confidence": 0.698
+        },
+        {
+          "tRelMs": 1013.2,
+          "frustration": 0.552,
+          "smoothedFrustration": 0.561,
+          "uncertainty": 0.716,
+          "smoothedUncertainty": 0.657,
+          "energy": 0.575,
+          "smoothedEnergy": 0.645,
+          "confidence": 0.584
+        },
+        {
+          "tRelMs": 1273.4,
+          "frustration": 0.537,
+          "smoothedFrustration": 0.556,
+          "uncertainty": 0.712,
+          "smoothedUncertainty": 0.669,
+          "energy": 0.54,
+          "smoothedEnergy": 0.623,
+          "confidence": 0.609
+        },
+        {
+          "tRelMs": 1526.2,
+          "frustration": 0.58,
+          "smoothedFrustration": 0.561,
+          "uncertainty": 0.68,
+          "smoothedUncertainty": 0.672,
+          "energy": 0.593,
+          "smoothedEnergy": 0.616,
+          "confidence": 0.631
+        },
+        {
+          "tRelMs": 1780.7,
+          "frustration": 0.55,
+          "smoothedFrustration": 0.559,
+          "uncertainty": 0.736,
+          "smoothedUncertainty": 0.686,
+          "energy": 0.511,
+          "smoothedEnergy": 0.592,
+          "confidence": 0.644
+        },
+        {
+          "tRelMs": 2032.8,
+          "frustration": 0.511,
+          "smoothedFrustration": 0.549,
+          "uncertainty": 0.838,
+          "smoothedUncertainty": 0.717,
+          "energy": 0.359,
+          "smoothedEnergy": 0.544,
+          "confidence": 0.588
+        },
+        {
+          "tRelMs": 2274.6,
+          "frustration": 0.519,
+          "smoothedFrustration": 0.543,
+          "uncertainty": 0.838,
+          "smoothedUncertainty": 0.741,
+          "energy": 0.358,
+          "smoothedEnergy": 0.508,
+          "confidence": 0.558
+        },
+        {
+          "tRelMs": 2532.2,
+          "frustration": 0.581,
+          "smoothedFrustration": 0.552,
+          "uncertainty": 0.729,
+          "smoothedUncertainty": 0.738,
+          "energy": 0.591,
+          "smoothedEnergy": 0.527,
+          "confidence": 0.644
+        },
+        {
+          "tRelMs": 2778.2,
+          "frustration": 0.615,
+          "smoothedFrustration": 0.567,
+          "uncertainty": 0.662,
+          "smoothedUncertainty": 0.72,
+          "energy": 0.702,
+          "smoothedEnergy": 0.568,
+          "confidence": 0.67
+        },
+        {
+          "tRelMs": 3038.3,
+          "frustration": 0.632,
+          "smoothedFrustration": 0.582,
+          "uncertainty": 0.664,
+          "smoothedUncertainty": 0.707,
+          "energy": 0.689,
+          "smoothedEnergy": 0.596,
+          "confidence": 0.666
+        },
+        {
+          "tRelMs": 3288.2,
+          "frustration": 0.617,
+          "smoothedFrustration": 0.59,
+          "uncertainty": 0.666,
+          "smoothedUncertainty": 0.698,
+          "energy": 0.68,
+          "smoothedEnergy": 0.616,
+          "confidence": 0.663
+        },
+        {
+          "tRelMs": 3537.9,
+          "frustration": 0.633,
+          "smoothedFrustration": 0.599,
+          "uncertainty": 0.666,
+          "smoothedUncertainty": 0.691,
+          "energy": 0.68,
+          "smoothedEnergy": 0.63,
+          "confidence": 0.618
+        },
+        {
+          "tRelMs": 3790.5,
+          "frustration": 0.667,
+          "smoothedFrustration": 0.615,
+          "uncertainty": 0.628,
+          "smoothedUncertainty": 0.676,
+          "energy": 0.69,
+          "smoothedEnergy": 0.643,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 4041.3,
+          "frustration": 0.661,
+          "smoothedFrustration": 0.625,
+          "uncertainty": 0.617,
+          "smoothedUncertainty": 0.663,
+          "energy": 0.654,
+          "smoothedEnergy": 0.646,
+          "confidence": 0.644
+        },
+        {
+          "tRelMs": 4288.3,
+          "frustration": 0.629,
+          "smoothedFrustration": 0.626,
+          "uncertainty": 0.668,
+          "smoothedUncertainty": 0.664,
+          "energy": 0.534,
+          "smoothedEnergy": 0.621,
+          "confidence": 0.644
+        },
+        {
+          "tRelMs": 4542.7,
+          "frustration": 0.603,
+          "smoothedFrustration": 0.621,
+          "uncertainty": 0.639,
+          "smoothedUncertainty": 0.659,
+          "energy": 0.546,
+          "smoothedEnergy": 0.604,
+          "confidence": 0.648
+        },
+        {
+          "tRelMs": 4794.0,
+          "frustration": 0.586,
+          "smoothedFrustration": 0.613,
+          "uncertainty": 0.707,
+          "smoothedUncertainty": 0.669,
+          "energy": 0.476,
+          "smoothedEnergy": 0.576,
+          "confidence": 0.614
+        },
+        {
+          "tRelMs": 5044.7,
+          "frustration": 0.595,
+          "smoothedFrustration": 0.609,
+          "uncertainty": 0.707,
+          "smoothedUncertainty": 0.677,
+          "energy": 0.476,
+          "smoothedEnergy": 0.555,
+          "confidence": 0.596
+        },
+        {
+          "tRelMs": 5298.1,
+          "frustration": 0.616,
+          "smoothedFrustration": 0.611,
+          "uncertainty": 0.647,
+          "smoothedUncertainty": 0.67,
+          "energy": 0.597,
+          "smoothedEnergy": 0.564,
+          "confidence": 0.61
+        },
+        {
+          "tRelMs": 5546.7,
+          "frustration": 0.594,
+          "smoothedFrustration": 0.607,
+          "uncertainty": 0.662,
+          "smoothedUncertainty": 0.668,
+          "energy": 0.612,
+          "smoothedEnergy": 0.575,
+          "confidence": 0.636
+        },
+        {
+          "tRelMs": 5794.5,
+          "frustration": 0.62,
+          "smoothedFrustration": 0.61,
+          "uncertainty": 0.655,
+          "smoothedUncertainty": 0.665,
+          "energy": 0.645,
+          "smoothedEnergy": 0.59,
+          "confidence": 0.636
+        },
+        {
+          "tRelMs": 6046.3,
+          "frustration": 0.639,
+          "smoothedFrustration": 0.616,
+          "uncertainty": 0.623,
+          "smoothedUncertainty": 0.656,
+          "energy": 0.67,
+          "smoothedEnergy": 0.607,
+          "confidence": 0.614
+        },
+        {
+          "tRelMs": 6300.3,
+          "frustration": 0.662,
+          "smoothedFrustration": 0.626,
+          "uncertainty": 0.597,
+          "smoothedUncertainty": 0.644,
+          "energy": 0.71,
+          "smoothedEnergy": 0.629,
+          "confidence": 0.61
+        },
+        {
+          "tRelMs": 6545.4,
+          "frustration": 0.642,
+          "smoothedFrustration": 0.63,
+          "uncertainty": 0.579,
+          "smoothedUncertainty": 0.628,
+          "energy": 0.711,
+          "smoothedEnergy": 0.649,
+          "confidence": 0.67
+        }
+      ]
+    },
+    "high_energy_speaker": {
+      "durationS": 2.6,
+      "numPredictions": 9,
+      "trajectory": [
+        {
+          "tRelMs": 765.3,
+          "frustration": 0.781,
+          "smoothedFrustration": 0.781,
+          "uncertainty": 0.406,
+          "smoothedUncertainty": 0.406,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.659
+        },
+        {
+          "tRelMs": 1021.7,
+          "frustration": 0.748,
+          "smoothedFrustration": 0.773,
+          "uncertainty": 0.477,
+          "smoothedUncertainty": 0.423,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.689
+        },
+        {
+          "tRelMs": 1275.5,
+          "frustration": 0.747,
+          "smoothedFrustration": 0.767,
+          "uncertainty": 0.462,
+          "smoothedUncertainty": 0.433,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.688
+        },
+        {
+          "tRelMs": 1529.6,
+          "frustration": 0.738,
+          "smoothedFrustration": 0.76,
+          "uncertainty": 0.444,
+          "smoothedUncertainty": 0.435,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.695
+        },
+        {
+          "tRelMs": 1779.8,
+          "frustration": 0.734,
+          "smoothedFrustration": 0.753,
+          "uncertainty": 0.431,
+          "smoothedUncertainty": 0.434,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.692
+        },
+        {
+          "tRelMs": 2030.3,
+          "frustration": 0.724,
+          "smoothedFrustration": 0.746,
+          "uncertainty": 0.449,
+          "smoothedUncertainty": 0.438,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.685
+        },
+        {
+          "tRelMs": 2279.0,
+          "frustration": 0.705,
+          "smoothedFrustration": 0.736,
+          "uncertainty": 0.494,
+          "smoothedUncertainty": 0.452,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.722
+        },
+        {
+          "tRelMs": 2527.2,
+          "frustration": 0.734,
+          "smoothedFrustration": 0.736,
+          "uncertainty": 0.431,
+          "smoothedUncertainty": 0.447,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.7
+        },
+        {
+          "tRelMs": 2782.7,
+          "frustration": 0.727,
+          "smoothedFrustration": 0.734,
+          "uncertainty": 0.485,
+          "smoothedUncertainty": 0.456,
+          "energy": 1.0,
+          "smoothedEnergy": 1.0,
+          "confidence": 0.689
+        }
+      ]
+    },
+    "flat_delivery": {
+      "durationS": 1.81,
+      "numPredictions": 6,
+      "trajectory": [
+        {
+          "tRelMs": 764.7,
+          "frustration": 0.525,
+          "smoothedFrustration": 0.525,
+          "uncertainty": 0.721,
+          "smoothedUncertainty": 0.721,
+          "energy": 0.459,
+          "smoothedEnergy": 0.459,
+          "confidence": 0.611
+        },
+        {
+          "tRelMs": 1041.0,
+          "frustration": 0.517,
+          "smoothedFrustration": 0.523,
+          "uncertainty": 0.78,
+          "smoothedUncertainty": 0.732,
+          "energy": 0.397,
+          "smoothedEnergy": 0.447,
+          "confidence": 0.519
+        },
+        {
+          "tRelMs": 1269.2,
+          "frustration": 0.52,
+          "smoothedFrustration": 0.523,
+          "uncertainty": 0.756,
+          "smoothedUncertainty": 0.736,
+          "energy": 0.41,
+          "smoothedEnergy": 0.44,
+          "confidence": 0.563
+        },
+        {
+          "tRelMs": 1528.2,
+          "frustration": 0.557,
+          "smoothedFrustration": 0.53,
+          "uncertainty": 0.755,
+          "smoothedUncertainty": 0.74,
+          "energy": 0.41,
+          "smoothedEnergy": 0.434,
+          "confidence": 0.58
+        },
+        {
+          "tRelMs": 1778.4,
+          "frustration": 0.556,
+          "smoothedFrustration": 0.535,
+          "uncertainty": 0.735,
+          "smoothedUncertainty": 0.739,
+          "energy": 0.426,
+          "smoothedEnergy": 0.432,
+          "confidence": 0.588
+        },
+        {
+          "tRelMs": 2030.1,
+          "frustration": 0.531,
+          "smoothedFrustration": 0.534,
+          "uncertainty": 0.795,
+          "smoothedUncertainty": 0.751,
+          "energy": 0.349,
+          "smoothedEnergy": 0.415,
+          "confidence": 0.596
+        }
+      ]
+    },
+    "background_noise": {
+      "durationS": 9.5,
+      "numPredictions": 38,
+      "trajectory": [
+        {
+          "tRelMs": 768.6,
+          "frustration": 0.64,
+          "smoothedFrustration": 0.64,
+          "uncertainty": 0.134,
+          "smoothedUncertainty": 0.134,
+          "energy": 0.747,
+          "smoothedEnergy": 0.747,
+          "confidence": 0.415
+        },
+        {
+          "tRelMs": 1022.2,
+          "frustration": 0.655,
+          "smoothedFrustration": 0.643,
+          "uncertainty": 0.134,
+          "smoothedUncertainty": 0.134,
+          "energy": 0.774,
+          "smoothedEnergy": 0.751,
+          "confidence": 0.414
+        },
+        {
+          "tRelMs": 1277.3,
+          "frustration": 0.702,
+          "smoothedFrustration": 0.652,
+          "uncertainty": 0.171,
+          "smoothedUncertainty": 0.14,
+          "energy": 0.817,
+          "smoothedEnergy": 0.762,
+          "confidence": 0.446
+        },
+        {
+          "tRelMs": 1530.2,
+          "frustration": 0.725,
+          "smoothedFrustration": 0.664,
+          "uncertainty": 0.171,
+          "smoothedUncertainty": 0.145,
+          "energy": 0.877,
+          "smoothedEnergy": 0.782,
+          "confidence": 0.494
+        },
+        {
+          "tRelMs": 1782.4,
+          "frustration": 0.73,
+          "smoothedFrustration": 0.675,
+          "uncertainty": 0.2,
+          "smoothedUncertainty": 0.154,
+          "energy": 0.833,
+          "smoothedEnergy": 0.79,
+          "confidence": 0.466
+        },
+        {
+          "tRelMs": 2036.0,
+          "frustration": 0.754,
+          "smoothedFrustration": 0.689,
+          "uncertainty": 0.237,
+          "smoothedUncertainty": 0.168,
+          "energy": 0.833,
+          "smoothedEnergy": 0.797,
+          "confidence": 0.492
+        },
+        {
+          "tRelMs": 2277.7,
+          "frustration": 0.764,
+          "smoothedFrustration": 0.702,
+          "uncertainty": 0.238,
+          "smoothedUncertainty": 0.181,
+          "energy": 0.861,
+          "smoothedEnergy": 0.809,
+          "confidence": 0.521
+        },
+        {
+          "tRelMs": 2536.3,
+          "frustration": 0.759,
+          "smoothedFrustration": 0.712,
+          "uncertainty": 0.239,
+          "smoothedUncertainty": 0.191,
+          "energy": 0.845,
+          "smoothedEnergy": 0.815,
+          "confidence": 0.51
+        },
+        {
+          "tRelMs": 2784.3,
+          "frustration": 0.751,
+          "smoothedFrustration": 0.719,
+          "uncertainty": 0.284,
+          "smoothedUncertainty": 0.206,
+          "energy": 0.741,
+          "smoothedEnergy": 0.804,
+          "confidence": 0.451
+        },
+        {
+          "tRelMs": 3042.2,
+          "frustration": 0.603,
+          "smoothedFrustration": 0.702,
+          "uncertainty": 0.169,
+          "smoothedUncertainty": 0.201,
+          "energy": 0.625,
+          "smoothedEnergy": 0.778,
+          "confidence": 0.41
+        },
+        {
+          "tRelMs": 3384.6,
+          "frustration": 0.751,
+          "smoothedFrustration": 0.71,
+          "uncertainty": 0.284,
+          "smoothedUncertainty": 0.213,
+          "energy": 0.733,
+          "smoothedEnergy": 0.771,
+          "confidence": 0.432
+        },
+        {
+          "tRelMs": 3537.9,
+          "frustration": 0.745,
+          "smoothedFrustration": 0.715,
+          "uncertainty": 0.291,
+          "smoothedUncertainty": 0.224,
+          "energy": 0.7,
+          "smoothedEnergy": 0.761,
+          "confidence": 0.406
+        },
+        {
+          "tRelMs": 3786.6,
+          "frustration": 0.729,
+          "smoothedFrustration": 0.717,
+          "uncertainty": 0.249,
+          "smoothedUncertainty": 0.228,
+          "energy": 0.745,
+          "smoothedEnergy": 0.759,
+          "confidence": 0.432
+        },
+        {
+          "tRelMs": 4044.9,
+          "frustration": 0.739,
+          "smoothedFrustration": 0.721,
+          "uncertainty": 0.243,
+          "smoothedUncertainty": 0.23,
+          "energy": 0.793,
+          "smoothedEnergy": 0.765,
+          "confidence": 0.484
+        },
+        {
+          "tRelMs": 4297.1,
+          "frustration": 0.741,
+          "smoothedFrustration": 0.724,
+          "uncertainty": 0.242,
+          "smoothedUncertainty": 0.232,
+          "energy": 0.797,
+          "smoothedEnergy": 0.77,
+          "confidence": 0.484
+        },
+        {
+          "tRelMs": 4538.7,
+          "frustration": 0.742,
+          "smoothedFrustration": 0.727,
+          "uncertainty": 0.235,
+          "smoothedUncertainty": 0.233,
+          "energy": 0.813,
+          "smoothedEnergy": 0.778,
+          "confidence": 0.492
+        },
+        {
+          "tRelMs": 4797.4,
+          "frustration": 0.664,
+          "smoothedFrustration": 0.716,
+          "uncertainty": 0.171,
+          "smoothedUncertainty": 0.222,
+          "energy": 0.766,
+          "smoothedEnergy": 0.775,
+          "confidence": 0.503
+        },
+        {
+          "tRelMs": 5041.1,
+          "frustration": 0.644,
+          "smoothedFrustration": 0.705,
+          "uncertainty": 0.174,
+          "smoothedUncertainty": 0.214,
+          "energy": 0.706,
+          "smoothedEnergy": 0.764,
+          "confidence": 0.451
+        },
+        {
+          "tRelMs": 5296.4,
+          "frustration": 0.628,
+          "smoothedFrustration": 0.694,
+          "uncertainty": 0.203,
+          "smoothedUncertainty": 0.213,
+          "energy": 0.618,
+          "smoothedEnergy": 0.744,
+          "confidence": 0.402
+        },
+        {
+          "tRelMs": 5550.6,
+          "frustration": 0.603,
+          "smoothedFrustration": 0.683,
+          "uncertainty": 0.224,
+          "smoothedUncertainty": 0.214,
+          "energy": 0.521,
+          "smoothedEnergy": 0.717,
+          "confidence": 0.343
+        },
+        {
+          "tRelMs": 5805.2,
+          "frustration": 0.598,
+          "smoothedFrustration": 0.672,
+          "uncertainty": 0.178,
+          "smoothedUncertainty": 0.21,
+          "energy": 0.588,
+          "smoothedEnergy": 0.701,
+          "confidence": 0.361
+        },
+        {
+          "tRelMs": 6056.6,
+          "frustration": 0.72,
+          "smoothedFrustration": 0.679,
+          "uncertainty": 0.191,
+          "smoothedUncertainty": 0.207,
+          "energy": 0.813,
+          "smoothedEnergy": 0.718,
+          "confidence": 0.432
+        },
+        {
+          "tRelMs": 6305.0,
+          "frustration": 0.754,
+          "smoothedFrustration": 0.69,
+          "uncertainty": 0.222,
+          "smoothedUncertainty": 0.209,
+          "energy": 0.819,
+          "smoothedEnergy": 0.732,
+          "confidence": 0.406
+        },
+        {
+          "tRelMs": 6556.7,
+          "frustration": 0.773,
+          "smoothedFrustration": 0.703,
+          "uncertainty": 0.221,
+          "smoothedUncertainty": 0.211,
+          "energy": 0.869,
+          "smoothedEnergy": 0.753,
+          "confidence": 0.436
+        },
+        {
+          "tRelMs": 6806.4,
+          "frustration": 0.776,
+          "smoothedFrustration": 0.715,
+          "uncertainty": 0.193,
+          "smoothedUncertainty": 0.208,
+          "energy": 0.929,
+          "smoothedEnergy": 0.782,
+          "confidence": 0.469
+        },
+        {
+          "tRelMs": 7057.8,
+          "frustration": 0.791,
+          "smoothedFrustration": 0.728,
+          "uncertainty": 0.192,
+          "smoothedUncertainty": 0.205,
+          "energy": 0.971,
+          "smoothedEnergy": 0.815,
+          "confidence": 0.495
+        },
+        {
+          "tRelMs": 7308.2,
+          "frustration": 0.798,
+          "smoothedFrustration": 0.74,
+          "uncertainty": 0.201,
+          "smoothedUncertainty": 0.204,
+          "energy": 0.971,
+          "smoothedEnergy": 0.842,
+          "confidence": 0.495
+        },
+        {
+          "tRelMs": 7563.5,
+          "frustration": 0.701,
+          "smoothedFrustration": 0.734,
+          "uncertainty": 0.153,
+          "smoothedUncertainty": 0.197,
+          "energy": 0.838,
+          "smoothedEnergy": 0.841,
+          "confidence": 0.44
+        },
+        {
+          "tRelMs": 7811.1,
+          "frustration": 0.684,
+          "smoothedFrustration": 0.727,
+          "uncertainty": 0.19,
+          "smoothedUncertainty": 0.196,
+          "energy": 0.734,
+          "smoothedEnergy": 0.827,
+          "confidence": 0.388
+        },
+        {
+          "tRelMs": 8064.2,
+          "frustration": 0.774,
+          "smoothedFrustration": 0.734,
+          "uncertainty": 0.226,
+          "smoothedUncertainty": 0.2,
+          "energy": 0.853,
+          "smoothedEnergy": 0.83,
+          "confidence": 0.41
+        },
+        {
+          "tRelMs": 8315.9,
+          "frustration": 0.892,
+          "smoothedFrustration": 0.757,
+          "uncertainty": 0.294,
+          "smoothedUncertainty": 0.213,
+          "energy": 0.964,
+          "smoothedEnergy": 0.849,
+          "confidence": 0.406
+        },
+        {
+          "tRelMs": 8567.3,
+          "frustration": 0.944,
+          "smoothedFrustration": 0.784,
+          "uncertainty": 0.355,
+          "smoothedUncertainty": 0.234,
+          "energy": 0.976,
+          "smoothedEnergy": 0.868,
+          "confidence": 0.421
+        },
+        {
+          "tRelMs": 8818.1,
+          "frustration": 0.945,
+          "smoothedFrustration": 0.81,
+          "uncertainty": 0.35,
+          "smoothedUncertainty": 0.253,
+          "energy": 1.0,
+          "smoothedEnergy": 0.889,
+          "confidence": 0.451
+        },
+        {
+          "tRelMs": 9071.2,
+          "frustration": 0.927,
+          "smoothedFrustration": 0.831,
+          "uncertainty": 0.35,
+          "smoothedUncertainty": 0.27,
+          "energy": 1.0,
+          "smoothedEnergy": 0.909,
+          "confidence": 0.518
+        },
+        {
+          "tRelMs": 9401.7,
+          "frustration": 0.918,
+          "smoothedFrustration": 0.848,
+          "uncertainty": 0.35,
+          "smoothedUncertainty": 0.286,
+          "energy": 1.0,
+          "smoothedEnergy": 0.926,
+          "confidence": 0.551
+        },
+        {
+          "tRelMs": 9568.8,
+          "frustration": 0.919,
+          "smoothedFrustration": 0.861,
+          "uncertainty": 0.35,
+          "smoothedUncertainty": 0.298,
+          "energy": 1.0,
+          "smoothedEnergy": 0.941,
+          "confidence": 0.547
+        },
+        {
+          "tRelMs": 9822.1,
+          "frustration": 0.929,
+          "smoothedFrustration": 0.873,
+          "uncertainty": 0.35,
+          "smoothedUncertainty": 0.307,
+          "energy": 1.0,
+          "smoothedEnergy": 0.951,
+          "confidence": 0.51
+        },
+        {
+          "tRelMs": 10077.2,
+          "frustration": 0.937,
+          "smoothedFrustration": 0.884,
+          "uncertainty": 0.351,
+          "smoothedUncertainty": 0.314,
+          "energy": 0.994,
+          "smoothedEnergy": 0.958,
+          "confidence": 0.473
+        }
+      ]
+    },
+    "long_conversation": {
+      "durationS": 10.0,
+      "numPredictions": 40,
+      "trajectory": [
+        {
+          "tRelMs": 762.5,
+          "frustration": 0.763,
+          "smoothedFrustration": 0.763,
+          "uncertainty": 0.414,
+          "smoothedUncertainty": 0.414,
+          "energy": 0.963,
+          "smoothedEnergy": 0.963,
+          "confidence": 0.714
+        },
+        {
+          "tRelMs": 1021.0,
+          "frustration": 0.733,
+          "smoothedFrustration": 0.756,
+          "uncertainty": 0.415,
+          "smoothedUncertainty": 0.414,
+          "energy": 0.957,
+          "smoothedEnergy": 0.962,
+          "confidence": 0.724
+        },
+        {
+          "tRelMs": 1275.8,
+          "frustration": 0.713,
+          "smoothedFrustration": 0.745,
+          "uncertainty": 0.405,
+          "smoothedUncertainty": 0.412,
+          "energy": 0.948,
+          "smoothedEnergy": 0.958,
+          "confidence": 0.735
+        },
+        {
+          "tRelMs": 1520.9,
+          "frustration": 0.726,
+          "smoothedFrustration": 0.74,
+          "uncertainty": 0.409,
+          "smoothedUncertainty": 0.411,
+          "energy": 0.941,
+          "smoothedEnergy": 0.954,
+          "confidence": 0.723
+        },
+        {
+          "tRelMs": 1769.9,
+          "frustration": 0.689,
+          "smoothedFrustration": 0.727,
+          "uncertainty": 0.4,
+          "smoothedUncertainty": 0.408,
+          "energy": 0.93,
+          "smoothedEnergy": 0.948,
+          "confidence": 0.744
+        },
+        {
+          "tRelMs": 2027.5,
+          "frustration": 0.687,
+          "smoothedFrustration": 0.717,
+          "uncertainty": 0.432,
+          "smoothedUncertainty": 0.414,
+          "energy": 0.858,
+          "smoothedEnergy": 0.925,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 2280.1,
+          "frustration": 0.658,
+          "smoothedFrustration": 0.702,
+          "uncertainty": 0.494,
+          "smoothedUncertainty": 0.434,
+          "energy": 0.775,
+          "smoothedEnergy": 0.888,
+          "confidence": 0.703
+        },
+        {
+          "tRelMs": 2527.2,
+          "frustration": 0.634,
+          "smoothedFrustration": 0.686,
+          "uncertainty": 0.559,
+          "smoothedUncertainty": 0.463,
+          "energy": 0.673,
+          "smoothedEnergy": 0.839,
+          "confidence": 0.659
+        },
+        {
+          "tRelMs": 2776.8,
+          "frustration": 0.618,
+          "smoothedFrustration": 0.673,
+          "uncertainty": 0.656,
+          "smoothedUncertainty": 0.502,
+          "energy": 0.551,
+          "smoothedEnergy": 0.781,
+          "confidence": 0.573
+        },
+        {
+          "tRelMs": 3033.9,
+          "frustration": 0.587,
+          "smoothedFrustration": 0.656,
+          "uncertainty": 0.717,
+          "smoothedUncertainty": 0.543,
+          "energy": 0.426,
+          "smoothedEnergy": 0.713,
+          "confidence": 0.547
+        },
+        {
+          "tRelMs": 3283.7,
+          "frustration": 0.599,
+          "smoothedFrustration": 0.645,
+          "uncertainty": 0.705,
+          "smoothedUncertainty": 0.575,
+          "energy": 0.486,
+          "smoothedEnergy": 0.667,
+          "confidence": 0.573
+        },
+        {
+          "tRelMs": 3532.2,
+          "frustration": 0.559,
+          "smoothedFrustration": 0.627,
+          "uncertainty": 0.759,
+          "smoothedUncertainty": 0.613,
+          "energy": 0.439,
+          "smoothedEnergy": 0.621,
+          "confidence": 0.584
+        },
+        {
+          "tRelMs": 3776.4,
+          "frustration": 0.553,
+          "smoothedFrustration": 0.613,
+          "uncertainty": 0.815,
+          "smoothedUncertainty": 0.651,
+          "energy": 0.383,
+          "smoothedEnergy": 0.576,
+          "confidence": 0.54
+        },
+        {
+          "tRelMs": 4037.5,
+          "frustration": 0.541,
+          "smoothedFrustration": 0.6,
+          "uncertainty": 0.804,
+          "smoothedUncertainty": 0.68,
+          "energy": 0.393,
+          "smoothedEnergy": 0.541,
+          "confidence": 0.54
+        },
+        {
+          "tRelMs": 4280.9,
+          "frustration": 0.607,
+          "smoothedFrustration": 0.601,
+          "uncertainty": 0.682,
+          "smoothedUncertainty": 0.681,
+          "energy": 0.643,
+          "smoothedEnergy": 0.564,
+          "confidence": 0.629
+        },
+        {
+          "tRelMs": 4542.6,
+          "frustration": 0.614,
+          "smoothedFrustration": 0.604,
+          "uncertainty": 0.654,
+          "smoothedUncertainty": 0.674,
+          "energy": 0.693,
+          "smoothedEnergy": 0.594,
+          "confidence": 0.666
+        },
+        {
+          "tRelMs": 4794.5,
+          "frustration": 0.583,
+          "smoothedFrustration": 0.599,
+          "uncertainty": 0.641,
+          "smoothedUncertainty": 0.667,
+          "energy": 0.671,
+          "smoothedEnergy": 0.612,
+          "confidence": 0.674
+        },
+        {
+          "tRelMs": 5035.9,
+          "frustration": 0.583,
+          "smoothedFrustration": 0.595,
+          "uncertainty": 0.631,
+          "smoothedUncertainty": 0.658,
+          "energy": 0.675,
+          "smoothedEnergy": 0.627,
+          "confidence": 0.681
+        },
+        {
+          "tRelMs": 5296.6,
+          "frustration": 0.58,
+          "smoothedFrustration": 0.592,
+          "uncertainty": 0.622,
+          "smoothedUncertainty": 0.649,
+          "energy": 0.675,
+          "smoothedEnergy": 0.639,
+          "confidence": 0.685
+        },
+        {
+          "tRelMs": 5548.0,
+          "frustration": 0.575,
+          "smoothedFrustration": 0.588,
+          "uncertainty": 0.613,
+          "smoothedUncertainty": 0.64,
+          "energy": 0.677,
+          "smoothedEnergy": 0.648,
+          "confidence": 0.703
+        },
+        {
+          "tRelMs": 5799.7,
+          "frustration": 0.575,
+          "smoothedFrustration": 0.585,
+          "uncertainty": 0.618,
+          "smoothedUncertainty": 0.635,
+          "energy": 0.651,
+          "smoothedEnergy": 0.649,
+          "confidence": 0.7
+        },
+        {
+          "tRelMs": 6052.9,
+          "frustration": 0.575,
+          "smoothedFrustration": 0.582,
+          "uncertainty": 0.633,
+          "smoothedUncertainty": 0.634,
+          "energy": 0.621,
+          "smoothedEnergy": 0.642,
+          "confidence": 0.689
+        },
+        {
+          "tRelMs": 6304.4,
+          "frustration": 0.588,
+          "smoothedFrustration": 0.584,
+          "uncertainty": 0.644,
+          "smoothedUncertainty": 0.636,
+          "energy": 0.612,
+          "smoothedEnergy": 0.635,
+          "confidence": 0.67
+        },
+        {
+          "tRelMs": 6554.0,
+          "frustration": 0.591,
+          "smoothedFrustration": 0.585,
+          "uncertainty": 0.688,
+          "smoothedUncertainty": 0.648,
+          "energy": 0.57,
+          "smoothedEnergy": 0.62,
+          "confidence": 0.655
+        },
+        {
+          "tRelMs": 6803.9,
+          "frustration": 0.594,
+          "smoothedFrustration": 0.587,
+          "uncertainty": 0.688,
+          "smoothedUncertainty": 0.657,
+          "energy": 0.57,
+          "smoothedEnergy": 0.609,
+          "confidence": 0.64
+        },
+        {
+          "tRelMs": 7053.0,
+          "frustration": 0.609,
+          "smoothedFrustration": 0.592,
+          "uncertainty": 0.688,
+          "smoothedUncertainty": 0.664,
+          "energy": 0.57,
+          "smoothedEnergy": 0.601,
+          "confidence": 0.603
+        },
+        {
+          "tRelMs": 7323.9,
+          "frustration": 0.616,
+          "smoothedFrustration": 0.597,
+          "uncertainty": 0.668,
+          "smoothedUncertainty": 0.665,
+          "energy": 0.582,
+          "smoothedEnergy": 0.597,
+          "confidence": 0.592
+        },
+        {
+          "tRelMs": 7575.5,
+          "frustration": 0.638,
+          "smoothedFrustration": 0.605,
+          "uncertainty": 0.685,
+          "smoothedUncertainty": 0.669,
+          "energy": 0.541,
+          "smoothedEnergy": 0.585,
+          "confidence": 0.577
+        },
+        {
+          "tRelMs": 7818.4,
+          "frustration": 0.633,
+          "smoothedFrustration": 0.61,
+          "uncertainty": 0.677,
+          "smoothedUncertainty": 0.67,
+          "energy": 0.535,
+          "smoothedEnergy": 0.576,
+          "confidence": 0.558
+        },
+        {
+          "tRelMs": 8072.7,
+          "frustration": 0.612,
+          "smoothedFrustration": 0.611,
+          "uncertainty": 0.728,
+          "smoothedUncertainty": 0.681,
+          "energy": 0.503,
+          "smoothedEnergy": 0.562,
+          "confidence": 0.544
+        },
+        {
+          "tRelMs": 8318.4,
+          "frustration": 0.626,
+          "smoothedFrustration": 0.613,
+          "uncertainty": 0.729,
+          "smoothedUncertainty": 0.689,
+          "energy": 0.501,
+          "smoothedEnergy": 0.551,
+          "confidence": 0.484
+        },
+        {
+          "tRelMs": 8576.1,
+          "frustration": 0.637,
+          "smoothedFrustration": 0.618,
+          "uncertainty": 0.667,
+          "smoothedUncertainty": 0.685,
+          "energy": 0.585,
+          "smoothedEnergy": 0.558,
+          "confidence": 0.536
+        },
+        {
+          "tRelMs": 8822.4,
+          "frustration": 0.74,
+          "smoothedFrustration": 0.641,
+          "uncertainty": 0.585,
+          "smoothedUncertainty": 0.666,
+          "energy": 0.813,
+          "smoothedEnergy": 0.606,
+          "confidence": 0.536
+        },
+        {
+          "tRelMs": 9075.4,
+          "frustration": 0.77,
+          "smoothedFrustration": 0.665,
+          "uncertainty": 0.576,
+          "smoothedUncertainty": 0.649,
+          "energy": 0.859,
+          "smoothedEnergy": 0.653,
+          "confidence": 0.536
+        },
+        {
+          "tRelMs": 9329.1,
+          "frustration": 0.779,
+          "smoothedFrustration": 0.687,
+          "uncertainty": 0.568,
+          "smoothedUncertainty": 0.634,
+          "energy": 0.945,
+          "smoothedEnergy": 0.709,
+          "confidence": 0.551
+        },
+        {
+          "tRelMs": 9576.9,
+          "frustration": 0.839,
+          "smoothedFrustration": 0.715,
+          "uncertainty": 0.507,
+          "smoothedUncertainty": 0.61,
+          "energy": 0.978,
+          "smoothedEnergy": 0.759,
+          "confidence": 0.529
+        },
+        {
+          "tRelMs": 9839.1,
+          "frustration": 0.824,
+          "smoothedFrustration": 0.738,
+          "uncertainty": 0.44,
+          "smoothedUncertainty": 0.575,
+          "energy": 1.0,
+          "smoothedEnergy": 0.81,
+          "confidence": 0.599
+        },
+        {
+          "tRelMs": 10089.5,
+          "frustration": 0.806,
+          "smoothedFrustration": 0.753,
+          "uncertainty": 0.422,
+          "smoothedUncertainty": 0.541,
+          "energy": 1.0,
+          "smoothedEnergy": 0.851,
+          "confidence": 0.622
+        },
+        {
+          "tRelMs": 10341.4,
+          "frustration": 0.781,
+          "smoothedFrustration": 0.759,
+          "uncertainty": 0.511,
+          "smoothedUncertainty": 0.535,
+          "energy": 0.916,
+          "smoothedEnergy": 0.864,
+          "confidence": 0.592
+        },
+        {
+          "tRelMs": 10590.4,
+          "frustration": 0.74,
+          "smoothedFrustration": 0.755,
+          "uncertainty": 0.611,
+          "smoothedUncertainty": 0.549,
+          "energy": 0.776,
+          "smoothedEnergy": 0.848,
+          "confidence": 0.529
+        }
+      ]
+    },
+    "hindi_hinglish": {
+      "durationS": 4.92,
+      "numPredictions": 19,
+      "trajectory": [
+        {
+          "tRelMs": 766.4,
+          "frustration": 0.56,
+          "smoothedFrustration": 0.56,
+          "uncertainty": 0.623,
+          "smoothedUncertainty": 0.623,
+          "energy": 0.667,
+          "smoothedEnergy": 0.667,
+          "confidence": 0.769
+        },
+        {
+          "tRelMs": 1022.0,
+          "frustration": 0.588,
+          "smoothedFrustration": 0.568,
+          "uncertainty": 0.569,
+          "smoothedUncertainty": 0.608,
+          "energy": 0.746,
+          "smoothedEnergy": 0.689,
+          "confidence": 0.771
+        },
+        {
+          "tRelMs": 1304.8,
+          "frustration": 0.613,
+          "smoothedFrustration": 0.58,
+          "uncertainty": 0.58,
+          "smoothedUncertainty": 0.601,
+          "energy": 0.748,
+          "smoothedEnergy": 0.705,
+          "confidence": 0.772
+        },
+        {
+          "tRelMs": 1536.6,
+          "frustration": 0.607,
+          "smoothedFrustration": 0.587,
+          "uncertainty": 0.572,
+          "smoothedUncertainty": 0.593,
+          "energy": 0.735,
+          "smoothedEnergy": 0.713,
+          "confidence": 0.773
+        },
+        {
+          "tRelMs": 1793.2,
+          "frustration": 0.635,
+          "smoothedFrustration": 0.6,
+          "uncertainty": 0.545,
+          "smoothedUncertainty": 0.58,
+          "energy": 0.746,
+          "smoothedEnergy": 0.722,
+          "confidence": 0.755
+        },
+        {
+          "tRelMs": 2133.7,
+          "frustration": 0.651,
+          "smoothedFrustration": 0.613,
+          "uncertainty": 0.549,
+          "smoothedUncertainty": 0.572,
+          "energy": 0.723,
+          "smoothedEnergy": 0.722,
+          "confidence": 0.741
+        },
+        {
+          "tRelMs": 2307.6,
+          "frustration": 0.691,
+          "smoothedFrustration": 0.632,
+          "uncertainty": 0.475,
+          "smoothedUncertainty": 0.548,
+          "energy": 0.78,
+          "smoothedEnergy": 0.737,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 2561.9,
+          "frustration": 0.695,
+          "smoothedFrustration": 0.648,
+          "uncertainty": 0.475,
+          "smoothedUncertainty": 0.53,
+          "energy": 0.778,
+          "smoothedEnergy": 0.747,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 2816.5,
+          "frustration": 0.667,
+          "smoothedFrustration": 0.653,
+          "uncertainty": 0.462,
+          "smoothedUncertainty": 0.513,
+          "energy": 0.756,
+          "smoothedEnergy": 0.749,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 3058.1,
+          "frustration": 0.671,
+          "smoothedFrustration": 0.657,
+          "uncertainty": 0.442,
+          "smoothedUncertainty": 0.495,
+          "energy": 0.763,
+          "smoothedEnergy": 0.753,
+          "confidence": 0.715
+        },
+        {
+          "tRelMs": 3319.3,
+          "frustration": 0.638,
+          "smoothedFrustration": 0.653,
+          "uncertainty": 0.484,
+          "smoothedUncertainty": 0.492,
+          "energy": 0.69,
+          "smoothedEnergy": 0.737,
+          "confidence": 0.718
+        },
+        {
+          "tRelMs": 3569.0,
+          "frustration": 0.593,
+          "smoothedFrustration": 0.638,
+          "uncertainty": 0.572,
+          "smoothedUncertainty": 0.511,
+          "energy": 0.611,
+          "smoothedEnergy": 0.707,
+          "confidence": 0.677
+        },
+        {
+          "tRelMs": 3818.2,
+          "frustration": 0.548,
+          "smoothedFrustration": 0.618,
+          "uncertainty": 0.653,
+          "smoothedUncertainty": 0.543,
+          "energy": 0.567,
+          "smoothedEnergy": 0.676,
+          "confidence": 0.648
+        },
+        {
+          "tRelMs": 4067.7,
+          "frustration": 0.573,
+          "smoothedFrustration": 0.608,
+          "uncertainty": 0.618,
+          "smoothedUncertainty": 0.56,
+          "energy": 0.652,
+          "smoothedEnergy": 0.67,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 4319.4,
+          "frustration": 0.608,
+          "smoothedFrustration": 0.608,
+          "uncertainty": 0.656,
+          "smoothedUncertainty": 0.582,
+          "energy": 0.641,
+          "smoothedEnergy": 0.664,
+          "confidence": 0.651
+        },
+        {
+          "tRelMs": 4572.3,
+          "frustration": 0.628,
+          "smoothedFrustration": 0.612,
+          "uncertainty": 0.672,
+          "smoothedUncertainty": 0.602,
+          "energy": 0.605,
+          "smoothedEnergy": 0.651,
+          "confidence": 0.64
+        },
+        {
+          "tRelMs": 4820.8,
+          "frustration": 0.638,
+          "smoothedFrustration": 0.618,
+          "uncertainty": 0.656,
+          "smoothedUncertainty": 0.614,
+          "energy": 0.638,
+          "smoothedEnergy": 0.648,
+          "confidence": 0.633
+        },
+        {
+          "tRelMs": 5074.2,
+          "frustration": 0.648,
+          "smoothedFrustration": 0.625,
+          "uncertainty": 0.595,
+          "smoothedUncertainty": 0.61,
+          "energy": 0.673,
+          "smoothedEnergy": 0.654,
+          "confidence": 0.659
+        },
+        {
+          "tRelMs": 5326.3,
+          "frustration": 0.631,
+          "smoothedFrustration": 0.627,
+          "uncertainty": 0.604,
+          "smoothedUncertainty": 0.608,
+          "energy": 0.673,
+          "smoothedEnergy": 0.658,
+          "confidence": 0.711
+        }
+      ]
+    }
+  },
+  "repeatsPerScenario": 2,
+  "latency_ms": {
+    "audio_wait": {
+      "p50": 1581.8444585893303,
+      "p95": 1640.2290830737911
+    },
+    "queue_wait": {
+      "p50": 14.55787499435246,
+      "p95": 23.113854345865548
+    },
+    "inference": {
+      "p50": 19.757979433052242,
+      "p95": 32.63285383582115
+    },
+    "effective_detection": {
+      "p50": 1615.687186946161,
+      "p95": 1713.215728465002
+    },
+    "n": 356
+  }
+}

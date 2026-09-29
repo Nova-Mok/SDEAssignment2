@@ -39,6 +39,7 @@ export default function Timeline({ events }: { events: EventRow[] }) {
   const userEnd = findFirst(events, "USER_SPEECH_END");
   const stt = events.filter((e) => e.event_type === "STT_INTERIM" || e.event_type === "STT_FINAL");
   const eotUpdates = findAll(events, "EOT_PROBABILITY_UPDATED");
+  const acousticPredictions = findAll(events, "ACOUSTIC_PREDICTION_PRODUCED");
   const selected = findAll(events, "BACKCHANNEL_SELECTED");
   const suppressed = findAll(events, "BACKCHANNEL_SUPPRESSED");
   const cancelled = findAll(events, "BACKCHANNEL_CANCELLED");
@@ -90,6 +91,70 @@ export default function Timeline({ events }: { events: EventRow[] }) {
       </>
     ),
   });
+
+  // Acoustic-expression lanes (Assignment 2). Each sample is a vertical bar
+  // whose height is the SMOOTHED value (0..1) — raw values are available on
+  // hover via the <title> tooltip, so a reviewer can see both the smoothed
+  // trend and how noisy the underlying raw signal was. Bar opacity encodes
+  // confidence: a low-confidence prediction still shows up (so "we're not
+  // sure yet" is visible) but visibly fainter.
+  const acousticBarWidth = 5;
+  function acousticLane(
+    label: string,
+    color: string,
+    pick: (meta: Record<string, unknown>) => number | null,
+    rawPick: (meta: Record<string, unknown>) => number | null,
+  ) {
+    lanes.push({
+      label,
+      content: (
+        <>
+          {acousticPredictions.map((e, i) => {
+            const meta = parseMeta(e.metadata_json);
+            const value = pick(meta);
+            const raw = rawPick(meta);
+            const confidence = typeof meta.confidence === "number" ? meta.confidence : 1;
+            if (value === null) return null;
+            const barHeight = Math.max(1, value * 24);
+            return (
+              <rect
+                key={i}
+                x={x(e.timestamp) - acousticBarWidth / 2}
+                y={30 - barHeight}
+                width={acousticBarWidth}
+                height={barHeight}
+                fill={color}
+                opacity={0.35 + 0.65 * Math.max(0, Math.min(1, confidence))}
+              >
+                <title>
+                  {`${label.toLowerCase()}: smoothed=${value.toFixed(2)} raw=${raw?.toFixed(2)} confidence=${confidence.toFixed(2)}`}
+                </title>
+              </rect>
+            );
+          })}
+        </>
+      ),
+    });
+  }
+
+  acousticLane(
+    "FRUSTRATION",
+    "#f87171",
+    (m) => (typeof m.smoothedFrustration === "number" ? m.smoothedFrustration : null),
+    (m) => (typeof m.frustration === "number" ? m.frustration : null),
+  );
+  acousticLane(
+    "UNCERTAINTY",
+    "#fbbf24",
+    (m) => (typeof m.smoothedUncertainty === "number" ? m.smoothedUncertainty : null),
+    (m) => (typeof m.uncertainty === "number" ? m.uncertainty : null),
+  );
+  acousticLane(
+    "ENERGY",
+    "#5b8cff",
+    (m) => (typeof m.smoothedEnergy === "number" ? m.smoothedEnergy : null),
+    (m) => (typeof m.energy === "number" ? m.energy : null),
+  );
 
   // EOT lane
   lanes.push({
@@ -201,6 +266,10 @@ export default function Timeline({ events }: { events: EventRow[] }) {
       <div className="small" style={{ marginTop: 8 }}>
         Green = real backchannel audio window (cached clip). Yellow dashed = real agent response start (duration illustrative).
         Dark gray bars = real measured LLM/TTS call durations. Blue triangle = backchannel decision. Red line = cancelled.
+        <br />
+        FRUSTRATION / UNCERTAINTY / ENERGY: acoustically-expressed conversational signals (not a claim about the
+        speaker&apos;s true emotional state) — bar height is the smoothed value, opacity is model confidence; hover
+        for the raw (pre-smoothing) value.
       </div>
     </div>
   );

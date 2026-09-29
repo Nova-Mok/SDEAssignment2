@@ -1,0 +1,44 @@
+{
+  "transcript": "Yeah, that's great.",
+  "text_baseline": {
+    "positivity": 1.0,
+    "frustration_text": 0.0,
+    "uncertainty_text": 0.0,
+    "matched_terms": [
+      "great"
+    ]
+  },
+  "acoustic_by_style": {
+    "positive": {
+      "frustration": 0.6186946029151658,
+      "uncertainty": 0.6033221232360113,
+      "energy": 0.6907487152641875,
+      "confidence": 0.6877551020408164
+    },
+    "frustrated": {
+      "frustration": 0.6543023142940139,
+      "uncertainty": 0.6229665423770161,
+      "energy": 0.7738376765557414,
+      "confidence": 0.6372448979591837
+    },
+    "flat": {
+      "frustration": 0.5616276011560383,
+      "uncertainty": 0.758757501567777,
+      "energy": 0.40557954213370984,
+      "confidence": 0.6540816326530613
+    },
+    "uncertain": {
+      "frustration": 0.5885687645542798,
+      "uncertainty": 0.7145126914326361,
+      "energy": 0.5344206312900798,
+      "confidence": 0.6596938775510205
+    },
+    "sarcastic": {
+      "frustration": 0.5527406223812296,
+      "uncertainty": 0.7673844290846921,
+      "energy": 0.472554831166478,
+      "confidence": 0.6372448979591837
+    }
+  },
+  "acoustic_frustration_range": 0.1015616919127843
+}

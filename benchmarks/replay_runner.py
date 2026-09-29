@@ -92,14 +92,27 @@ async def run_one(
     seed: int,
     llm=None,
     tts=None,
+    acoustic_processor=None,
+    acoustic_audio=None,  # (np.ndarray float32, sample_rate) — fed concurrently if acoustic_processor is given
 ) -> dict:
     """`llm`/`tts` should be shared, warmed-up client instances reused across
     runs (matching how a real long-lived AgentSession reuses its clients
     across turns) — constructing a fresh one per call folds one-time
     connection setup into what's supposed to be a steady-state TTFT
-    measurement. Falls back to constructing one-off clients if omitted."""
+    measurement. Falls back to constructing one-off clients if omitted.
+
+    `acoustic_processor`/`acoustic_audio` (Assignment 2, both optional,
+    default None): when given, a real audio fixture is fed to the acoustic
+    pipeline in real time, concurrently with the scripted STT timeline,
+    for exactly the duration of the simulated user turn — this is what
+    lets `acoustic_conversation_bench.py` answer Phase 8's "does
+    continuously analyzing the user's voice make the normal agent slower?"
+    using this SAME trusted LLM/TTS-timing harness, not a bespoke one.
+    Omitting them reproduces Assignment 1's `run_one()` exactly."""
     run_id = f"{scenario.id}__{config_label}__{run_index}__{uuid.uuid4().hex[:8]}"
     h = _Harness(recorder, run_id, scenario.id, config_label)
+    if acoustic_processor is not None:
+        acoustic_processor.set_run_context(run_id, scenario.id)
 
     engine: BackchannelEngine | None = None
     if config_label == "backchannel":
@@ -122,6 +135,10 @@ async def run_one(
         engine.on_agent_state_changed("listening")
         engine.on_user_state_changed("speaking")
 
+    audio_feed_task: asyncio.Task | None = None
+    if acoustic_processor is not None and acoustic_audio is not None:
+        audio_feed_task = asyncio.create_task(_feed_audio(acoustic_processor, acoustic_audio))
+
     last_offset = 0.0
     for ev in scenario.events:
         await asyncio.sleep(max(0.0, (ev.offset_ms - last_offset) / 1000))
@@ -133,6 +150,12 @@ async def run_one(
 
     await asyncio.sleep(max(0.0, (scenario.turn_end_offset_ms - last_offset) / 1000))
     user_speech_end_ts = h.record(EventType.USER_SPEECH_END, source="harness")
+    if audio_feed_task is not None:
+        audio_feed_task.cancel()
+        import contextlib
+
+        with contextlib.suppress(asyncio.CancelledError):
+            await audio_feed_task
     if engine:
         engine.on_user_state_changed("listening")
         engine.on_agent_state_changed("thinking")  # real response pipeline starting now
@@ -219,6 +242,27 @@ async def run_one(
     }
     recorder.upsert_run(run_row)
     return run_row
+
+
+async def _feed_audio(acoustic_processor, acoustic_audio, frame_ms: float = 20.0) -> None:
+    """Feeds a real audio fixture into the acoustic pipeline in real time,
+    looping it if the user turn runs longer than the fixture — the content
+    doesn't matter for Phase 8's question (whether concurrent acoustic
+    processing slows the core path), only that real windows/inference keep
+    happening throughout the turn. Runs until cancelled by the caller."""
+    import numpy as np
+
+    audio, sample_rate = acoustic_audio
+    frame_len = int(sample_rate * frame_ms / 1000)
+    pos = 0
+    while True:
+        chunk = audio[pos : pos + frame_len]
+        if chunk.size < frame_len:
+            pos = 0
+            continue
+        acoustic_processor.push_frame(time.monotonic(), chunk.astype(np.float32))
+        pos += frame_len
+        await asyncio.sleep(frame_ms / 1000)
 
 
 def _summarize_behaviour(recorder: SqliteRecorder, run_id: str, user_speech_end_ts: float) -> dict:

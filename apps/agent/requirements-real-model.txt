@@ -1,0 +1,13 @@
+# Optional. Only needed for acoustic.real_model.Wav2Vec2EmotionModel
+# (ACOUSTIC_MODEL_KIND=real). The default runtime model
+# (acoustic.mock_model.DeterministicProsodyModel, ACOUSTIC_MODEL_KIND=mock)
+# needs nothing beyond requirements.txt's numpy.
+#
+# Not installed by default: these are large (~1.5GB combined with the
+# downloaded model weights) and, per README "Model selection", not what
+# this system runs live by default on CPU anyway. Install this file only to
+# run the real model locally (e.g. for benchmarks/acoustic_latency_bench.py
+# --model real) or when serving it GPU-backed in production.
+torch==2.10.0
+transformers==5.1.0
+huggingface_hub==1.4.1

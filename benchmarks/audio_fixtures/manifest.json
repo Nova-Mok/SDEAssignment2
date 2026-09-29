@@ -1,0 +1,101 @@
+{
+  "sample_rate": 16000,
+  "voice": "Matthew",
+  "engine": "neural",
+  "fixtures": {
+    "same_words_positive": {
+      "transcript": "Yeah, that's great.",
+      "style": "positive",
+      "ssml": "<speak><prosody rate=\"108%\" volume=\"loud\">Yeah, that's great.</prosody></speak>",
+      "durationMs": 1222.125,
+      "kind": "same_words_different_delivery"
+    },
+    "same_words_frustrated": {
+      "transcript": "Yeah, that's great.",
+      "style": "frustrated",
+      "ssml": "<speak><prosody rate=\"125%\" volume=\"x-loud\">Yeah<break time=\"150ms\"/>, that's great.</prosody></speak>",
+      "durationMs": 1237.5,
+      "kind": "same_words_different_delivery"
+    },
+    "same_words_flat": {
+      "transcript": "Yeah, that's great.",
+      "style": "flat",
+      "ssml": "<speak><prosody rate=\"85%\" volume=\"soft\">Yeah. That's great.</prosody></speak>",
+      "durationMs": 1805.25,
+      "kind": "same_words_different_delivery"
+    },
+    "same_words_uncertain": {
+      "transcript": "Yeah, that's great.",
+      "style": "uncertain",
+      "ssml": "<speak><prosody rate=\"90%\" volume=\"medium\">Yeah<break time=\"400ms\"/>, that's great<break time=\"200ms\"/>?</prosody></speak>",
+      "durationMs": 1989.125,
+      "kind": "same_words_different_delivery"
+    },
+    "same_words_sarcastic": {
+      "transcript": "Yeah, that's great.",
+      "style": "sarcastic",
+      "ssml": "<speak><prosody rate=\"90%\" volume=\"medium\">Yeah, that's<break time=\"350ms\"/> <prosody rate=\"72%\">great</prosody>.</prosody></speak>",
+      "durationMs": 2446.0,
+      "kind": "same_words_different_delivery"
+    },
+    "increasing_frustration": {
+      "kind": "increasing_frustration",
+      "durationMs": 9496.5625,
+      "segments": [
+        {
+          "label": "calm",
+          "startMs": 0.0
+        },
+        {
+          "label": "mild",
+          "startMs": 2701.875
+        },
+        {
+          "label": "rising",
+          "startMs": 5217.5625
+        },
+        {
+          "label": "high",
+          "startMs": 7310.8125
+        }
+      ]
+    },
+    "hesitant_speaker": {
+      "transcript": "Um, I think maybe it's the second option? I'm not totally sure.",
+      "ssml": "<speak><prosody rate=\"88%\" volume=\"medium\">Um<break time=\"350ms\"/>, I think<break time=\"300ms\"/> maybe it's the<break time=\"250ms\"/> second option? I'm not totally sure.</prosody></speak>",
+      "durationMs": 6100.4375,
+      "kind": "hesitant_speaker"
+    },
+    "high_energy_speaker": {
+      "transcript": "This is amazing, I can't believe it actually worked, let's go!",
+      "ssml": "<speak><prosody rate=\"132%\" volume=\"x-loud\">This is amazing, I can't believe it actually worked, let's go!</prosody></speak>",
+      "durationMs": 2597.375,
+      "kind": "high_energy_speaker"
+    },
+    "hindi_hinglish": {
+      "transcript": "Yaar, ye form phir se submit karna padega? Bahut frustrating hai.",
+      "ssml": "<speak><prosody rate=\"95%\">Yaar, ye form phir se submit karna padega? Bahut frustrating hai.</prosody></speak>",
+      "durationMs": 4918.375,
+      "kind": "hindi_hinglish"
+    },
+    "long_conversation": {
+      "kind": "long_conversation",
+      "durationMs": 10002.4375,
+      "segments": [
+        {
+          "label": "calm",
+          "startMs": 0.0
+        },
+        {
+          "label": "uncertain",
+          "startMs": 2638.0
+        },
+        {
+          "label": "frustrated",
+          "startMs": 7931.25
+        }
+      ]
+    }
+  },
+  "note": "All fixtures are Amazon Polly neural-engine TTS synthesized from SSML (rate/pitch/volume/break/emphasis tags), NOT human recordings. hindi_hinglish uses an English (Matthew) neural voice reading Hinglish text \u2014 this AWS account/region has no hi-IN Polly voice available (describe_voices returned none); see README 'accents and languages'."
+}

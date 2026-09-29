@@ -71,7 +71,13 @@ class WindowInfo:
     is_partial: bool  # True if shorter than the configured WINDOW_SIZE_MS (early in a turn)
 
     def to_dict(self) -> dict[str, Any]:
-        return dataclasses.asdict(self)
+        return {
+            "startTs": self.start_ts,
+            "endTs": self.end_ts,
+            "durationMs": self.duration_ms,
+            "sampleCount": self.sample_count,
+            "isPartial": self.is_partial,
+        }
 
 
 @dataclasses.dataclass(frozen=True)
@@ -88,7 +94,12 @@ class LatencyBreakdown:
     effective_detection_latency_ms: float  # relevant speech occurred -> usable prediction (sum of the above)
 
     def to_dict(self) -> dict[str, Any]:
-        return dataclasses.asdict(self)
+        return {
+            "audioWaitMs": self.audio_wait_ms,
+            "queueWaitMs": self.queue_wait_ms,
+            "inferenceLatencyMs": self.inference_latency_ms,
+            "effectiveDetectionLatencyMs": self.effective_detection_latency_ms,
+        }
 
 
 @dataclasses.dataclass(frozen=True)

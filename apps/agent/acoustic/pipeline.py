@@ -108,6 +108,13 @@ class AcousticStreamProcessor:
     def dropped_windows(self) -> int:
         return self._dropped_windows
 
+    def set_run_context(self, run_id: str, scenario_id: str) -> None:
+        """Rebind which run/scenario subsequent events are attributed to —
+        used by benchmark harnesses (see replay_runner.run_one) that only
+        learn the run_id after constructing the processor."""
+        self._run_id = run_id
+        self._scenario_id = scenario_id
+
     def reset_turn(self) -> None:
         """Called by the caller (e.g. on USER_SPEECH_START) so one turn's
         smoothing history never bleeds into the next turn's expression."""
