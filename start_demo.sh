@@ -5,6 +5,12 @@
 #
 # Usage:  ./start_demo.sh
 # Stop:   ./stop_demo.sh   (or Ctrl-C won't work since these are backgrounded — use stop_demo.sh)
+#
+# WARNING: do NOT run `npm run build` (production build) in apps/web while
+# this dev server is running — they write incompatible things to the same
+# .next/ cache and you'll get a "Cannot find module './NNN.js'" runtime
+# error on every page. If that happens: ./stop_demo.sh, rm -rf apps/web/.next,
+# then ./start_demo.sh again.
 
 set -euo pipefail
 cd "$(dirname "$0")"
