@@ -172,7 +172,7 @@ export default function LiveDemoPage() {
         <p>Requires browser microphone permission. Each connect creates a fresh room and disposes it on disconnect.</p>
         <p>
           <strong>Acoustic state:</strong> shown only for backchannel-mode connections. These are acoustically
-          expressed conversational signals derived from your voice&apos;s delivery (energy, pitch stability, pauses) —
+          expressed conversational signals derived from your voice&apos;s delivery (energy, pitch stability, pauses),
           not a claim about your actual emotional state.
         </p>
       </div>

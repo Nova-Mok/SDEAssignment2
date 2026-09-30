@@ -268,7 +268,7 @@ export default function Timeline({ events }: { events: EventRow[] }) {
         Dark gray bars = real measured LLM/TTS call durations. Blue triangle = backchannel decision. Red line = cancelled.
         <br />
         FRUSTRATION / UNCERTAINTY / ENERGY: acoustically-expressed conversational signals (not a claim about the
-        speaker&apos;s true emotional state) — bar height is the smoothed value, opacity is model confidence; hover
+        speaker&apos;s true emotional state). Bar height is the smoothed value, opacity is model confidence; hover
         for the raw (pre-smoothing) value.
       </div>
     </div>

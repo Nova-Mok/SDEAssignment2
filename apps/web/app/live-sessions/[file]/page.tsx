@@ -88,8 +88,8 @@ export default async function LiveSessionDetailPage({ params }: { params: Promis
           <h2 style={{ marginTop: 0 }}>Acoustic latency (this session)</h2>
           <p className="small" style={{ marginTop: -8 }}>
             Computed from this session&apos;s own {acoustic.predictionCount} ACOUSTIC_PREDICTION_PRODUCED events.
-            &quot;Effective detection&quot; is the honest end-to-end number (relevant speech → usable prediction,
-            including window-fill wait) — see README &quot;Latency methodology&quot; for why inference latency alone
+            &quot;Effective detection&quot; is the honest end-to-end number (relevant speech to usable prediction,
+            including window-fill wait). See README &quot;Latency methodology&quot; for why inference latency alone
             is not reported as the headline figure.
           </p>
           <table>
