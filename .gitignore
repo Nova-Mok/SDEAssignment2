@@ -10,3 +10,5 @@ apps/agent/logs/
 apps/agent/.venv/
 .venv/
 model_cache/
+*.pdf
+*.tsbuildinfo
